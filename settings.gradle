@@ -1,0 +1,2 @@
+rootProject.name='FindCardGame'
+include ':app'
