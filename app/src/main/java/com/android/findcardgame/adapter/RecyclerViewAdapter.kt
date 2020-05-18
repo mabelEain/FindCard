@@ -7,7 +7,7 @@ import com.android.findcardgame.R
 import kotlinx.android.synthetic.main.card_front.view.*
 
 
-class RecyclerViewAdapter( private val numberList: List<String>,private val callback: Listener) : RecyclerView.Adapter<CardViewHolder>() {
+class RecyclerViewAdapter( private val numberList: List<String>, private val randomList: List<Int>, private val callback: Listener) : RecyclerView.Adapter<CardViewHolder>() {
 
     interface Listener {
         fun onClickItem(position: Int)
@@ -21,7 +21,7 @@ class RecyclerViewAdapter( private val numberList: List<String>,private val call
     }
 
     override fun onBindViewHolder(holder: CardViewHolder, position: Int) {
-       holder.updateCardItem(numberList[position],this.callback)
+       holder.updateCardItem(numberList[position], randomList[position], this.callback)
     }
 
 

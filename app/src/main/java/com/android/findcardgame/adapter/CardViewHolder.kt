@@ -4,6 +4,7 @@ import android.animation.*
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import com.android.findcardgame.R
+import kotlinx.android.synthetic.main.card_back.view.*
 import kotlinx.android.synthetic.main.card_front.view.*
 import kotlinx.android.synthetic.main.card_item.view.*
 import java.lang.ref.WeakReference
@@ -11,7 +12,7 @@ import java.lang.ref.WeakReference
 
 class CardViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) , View.OnClickListener {
 
-    private var cardNumber: String? = null
+//    private var cardNumber: String? = null
     private var callbackWeakRef: WeakReference<RecyclerViewAdapter.Listener>? = null
     private var mIsBackVisible: Boolean = false
     private var mSetRightOut: AnimatorSet? = null
@@ -19,11 +20,13 @@ class CardViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) , View.
 
     fun updateCardItem(
         textNumber: String,
+        textRandom: Int,
         callback: RecyclerViewAdapter.Listener
     ) {
         callbackWeakRef = WeakReference(callback)
         itemView.txt_front.text = textNumber
-        this.cardNumber = textNumber
+        itemView.txt_back.text = textRandom.toString()
+//        this.cardNumber = textNumber
         itemView.setOnClickListener { onClick(it) }
     }
 
